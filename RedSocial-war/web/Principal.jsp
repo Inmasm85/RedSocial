@@ -55,7 +55,7 @@ img {border: none;}
                 <ul class="clearfix">
                     <li><a href="?" class="active"><span>Inicio</span></a></li>
                     <li><a href="?"><span>Amigos</span></a></li>
-                    <li><a href="?"><span>Invitar</span></a></li>
+                    <li><a href="InvitarAmigos.jsp"><span>Invitar</span></a></li>
                     <li><a href="?"><span>Grupos</span></a></li>
                     <li><a href="?"><span>Salir</span></a></li>
                     

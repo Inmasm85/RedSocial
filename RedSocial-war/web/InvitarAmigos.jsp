@@ -11,43 +11,45 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Invitar amigo</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Busca a alguien para invitarlo como amigo</h1>
         
-               <%
+        <form name="buscarUsuarios" action="InvitarAmigo" method="post">
+            
+            
+            
+        </form>
+<%
                    //Lista de amigos
                    List <Usuario> usuarios = (List<Usuario>) request.getAttribute("listaAmigos");
-                   
                    if(usuarios != null){
-                   
-               %>
-    <form>
+%>
+        <form name="seleccionarUsuarios" action="" method="">
                <table>
-                   <thead>
-                        <td>Nombre</td>
-                        <td>Seleccionar</td>
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Seleccionar</th>
                     </thead>
                     <tbody>
                    <%
                          // Recorremos la lista de amigos
-                         for (int i=0;i<usuarios.size();i++) 
-                         {
+                         for (int i=0;i<usuarios.size();i++){
                    %>
-                   <tr>
-                       
-                       // Muestra los nombre de todos los amigos
-                    /*   <td> <% usuarios.get(i).getId1Usuario(). %> </td> */
-                    <td> <input name="checkUsuario" type="checkbox" /> </td>
-                   </tr>
+                        <tr>
+                            <%-- Muestra los nombre de los usuarios--%>
+                            <td> <=% usuarios.get(i) %> </td>
+                            <td> <input name="checkUsuario" type="checkbox" /> </td>
+                        </tr>
                     </tbody>
                    <% 
                           }
+                   }
                    %>
                </table>     
                 <%-- Botón Invitar --%>
-               <input type="submit" name="btnInvitar" value="invitar amigo">
-    </form>
+               <input type="submit" name="btnInvitar" value="invitar amigos">
+        </form>
     </body>
 </html>

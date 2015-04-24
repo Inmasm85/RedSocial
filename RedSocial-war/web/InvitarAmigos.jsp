@@ -27,29 +27,28 @@
                    if(usuarios != null){
 %>
         <form name="seleccionarUsuarios" action="" method="">
-               <table>
-                    <thead>
-                        <th>Nombre</th>
-                        <th>Seleccionar</th>
-                    </thead>
-                    <tbody>
-                   <%
-                         // Recorremos la lista de amigos
-                         for (int i=0;i<usuarios.size();i++){
-                   %>
-                        <tr>
+            <table>
+                <thead>
+                    <th>Nombre</th>
+                    <th>Seleccionar</th>
+                </thead>
+                <tbody>
+<%                  // Recorremos la lista de amigos
+                        for (int i=0;i<usuarios.size();i++){
+%>
+                    <tr>
                             <%-- Muestra los nombre de los usuarios--%>
-                            <td> <=% usuarios.get(i) %> </td>
-                            <td> <input name="checkUsuario" type="checkbox" /> </td>
-                        </tr>
-                    </tbody>
-                   <% 
-                          }
+                        <td> <=% usuarios.get(i) %> </td>
+                        <td> <input name="checkUsuario" type="checkbox" /> </td>
+                    </tr>
+                </tbody>
+<% 
+                        }
                    }
-                   %>
-               </table>     
-                <%-- Botón Invitar --%>
-               <input type="submit" name="btnInvitar" value="invitar amigos">
+%>
+            </table>     
+            <%-- Botón Invitar --%>
+            <input type="submit" name="btnInvitar" value="Invitar">
         </form>
     </body>
 </html>

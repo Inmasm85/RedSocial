@@ -6,6 +6,7 @@
 package app.beans;
 
 import app.entity.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -48,5 +49,24 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         }
         return usu;   
     }
-
+    public List<Usuario> buscarPorNombreParecido(String nombre) {
+        
+        List<Usuario> usu;
+        Query q;
+        
+        try
+        {
+        
+        q= em.createQuery("SELECT u from Usuario u WHERE u.nombre LIKE ':nombre' || WHERE u.apellido LIKE ':nombre'")
+                 .setParameter("nombre", nombre);
+        
+       
+            usu = (List<Usuario>) q.getResultList();
+        }
+        catch(NoResultException e)
+        {
+            return null;
+        }
+        return usu;
+    }
 }

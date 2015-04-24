@@ -31,4 +31,5 @@ public interface UsuarioFacadeLocal {
     int count();
     
     public Usuario login(String email, String pass);
+    public List<Usuario> buscarPorNombreParecido(String nombre);
 }

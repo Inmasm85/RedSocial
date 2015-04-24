@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  * @author Andrés Ramos
  */
 @WebServlet(name = "InvitarAmigoServlet", urlPatterns = {"/InvitarAmigo"})
-public class InvitarAmigoServlet extends HttpServlet {
+public class BuscarUsuariosServlet extends HttpServlet {
 
     @EJB
     private UsuarioFacadeLocal facadeUsuario;
@@ -44,7 +44,7 @@ public class InvitarAmigoServlet extends HttpServlet {
         HttpSession sesion = request.getSession();
         String nombre = request.getParameter("nombre");
         
-        /* BUSCAR MIS AMIGOS */
+        // Buscamos a los usuarios con nombre o apellidos parecidos
         
         
         List<Usuario> listaUsuarios;

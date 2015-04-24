@@ -16,17 +16,16 @@
     <body>
         <h1>Busca a alguien para invitarlo como amigo</h1>
         
-        <form name="buscarUsuarios" action="InvitarAmigo" method="post">
-            
-            
-            
+        <form name="buscarUsuarios" action="InvitarAmigo" method="POST">
+            <input type="text" name="nombre" />
+            <input type="submit" value="Buscar" name="btnBuscar" />
         </form>
 <%
                    //Lista de amigos
                    List <Usuario> usuarios = (List<Usuario>) request.getAttribute("listaAmigos");
                    if(usuarios != null){
 %>
-        <form name="seleccionarUsuarios" action="" method="">
+        <form name="seleccionarUsuarios" action="InvitarUsuarios" method="POST">
             <table>
                 <thead>
                     <th>Nombre</th>
@@ -37,15 +36,15 @@
                         for (int i=0;i<usuarios.size();i++){
 %>
                     <tr>
-                            <%-- Muestra los nombre de los usuarios--%>
-                        <td> <=% usuarios.get(i) %> </td>
+                            <%-- Muestra los usuarios--%>
+                        <td> <=% usuarios.get(i).getNombre + " " + usuarios.get(i).getApellidos %> </td>
                         <td> <input name="checkUsuario" type="checkbox" /> </td>
                     </tr>
-                </tbody>
 <% 
                         }
                    }
 %>
+                </tbody>
             </table>     
             <%-- Botón Invitar --%>
             <input type="submit" name="btnInvitar" value="Invitar">

@@ -5,11 +5,12 @@
  */
 package Servlet;
 
-import app.beans.UsuarioFacade;
+import app.beans.UsuarioFacadeLocal;
 import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,6 +26,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "InvitarAmigoServlet", urlPatterns = {"/InvitarAmigo"})
 public class InvitarAmigoServlet extends HttpServlet {
 
+    @EJB
+    private UsuarioFacadeLocal facadeUsuario;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,7 +49,7 @@ public class InvitarAmigoServlet extends HttpServlet {
         
         List<Usuario> listaUsuarios;
         
-        listaUsuarios = (List<Usuario>) UsuarioFacade.buscarPorNombreParecido(nombre);
+        listaUsuarios = (List<Usuario>) facadeUsuario.buscarPorNombreParecido(nombre);
         
         request.setAttribute("listaUsuarios", listaUsuarios);
         
